@@ -1,0 +1,13 @@
+# Source files — not needed by consumers
+src/
+index.html
+vite.config.js
+
+# Dev artifacts
+node_modules/
+.DS_Store
+*.log
+
+# Git
+.git/
+.gitignore

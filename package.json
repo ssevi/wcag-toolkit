@@ -1,0 +1,31 @@
+{
+  "name": "wcag-toolkit",
+  "version": "1.0.0",
+  "description": "A comprehensive accessibility toolkit — audit mode for developers, UI panel for end-users",
+  "main": "./dist/wcag-toolkit.umd.js",
+  "module": "./dist/wcag-toolkit.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/wcag-toolkit.es.js",
+      "require": "./dist/wcag-toolkit.umd.js"
+    },
+    "./dist/wcag-toolkit.css": "./dist/wcag-toolkit.css"
+  },
+  "files": ["dist", "README.md"],
+  "author": "Arya M S <ssevikamanas@email.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ssevi/wcag-toolkit.git"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": ["accessibility", "a11y", "wcag", "contrast", "screen-reader", "focus-trap"],
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

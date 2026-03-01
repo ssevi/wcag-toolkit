@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>a11y-toolkit Demo</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; }
+    h1 { color: #005fcc; }
+    button { padding: 8px 16px; background: #005fcc; color: white; border: none; border-radius: 6px; cursor: pointer; margin: 4px; }
+    .card { background: #f0f0f0; padding: 20px; border-radius: 8px; margin: 16px 0; }
+    /* Intentional bad contrast for testing */
+    .bad-contrast { color: #aaa; background: #fff; padding: 8px; }
+    /* Image without alt for ARIA test */
+  </style>
+</head>
+<body>
+  <main id="main">
+    <h1>♿ a11y-toolkit Demo</h1>
+    <p>Look for the blue <strong>♿</strong> button in the bottom-right corner.</p>
+
+    <div class="card">
+      <h2>Test Elements</h2>
+      <p class="bad-contrast">This text has poor contrast (for testing the contrast checker).</p>
+      <img src="https://via.placeholder.com/100" /> <!-- missing alt — ARIA issue -->
+      <button>Normal Button</button>
+      <button aria-label="Icon only button">★</button>
+      <input type="text" placeholder="Input without label (ARIA issue)" />
+    </div>
+
+    <div class="card">
+      <h2>Developer API</h2>
+      <button onclick="window.toolkit.audit()">Run Full Audit (console)</button>
+      <button onclick="window.toolkit.contrastChecker.highlight()">Highlight Contrast Issues</button>
+      <button onclick="window.toolkit.ariaHelper.addHints()">Add ARIA Hints</button>
+      <button onclick="window.toolkit.focusTrap.trap(document.querySelector('.card'))">Trap Focus in Card</button>
+      <button onclick="window.toolkit.focusTrap.release()">Release Focus Trap</button>
+    </div>
+  </main>
+
+  <script type="module">
+    import { A11yToolkit } from './src/index.js';
+
+    const toolkit = new A11yToolkit({ mode: 'both' });
+    toolkit.mount();
+
+    // Expose for demo buttons
+    window.toolkit = toolkit;
+  </script>
+</body>
+</html>
