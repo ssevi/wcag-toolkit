@@ -1,7 +1,7 @@
 # a11y-toolkit
 
 A comprehensive, zero-dependency accessibility toolkit for web apps. Ships as an NPM package with two modes: a **floating UI panel** for end-users and a **developer audit API** for programmatic use.
-
+[![npm version](https://img.shields.io/npm/v/wcag-toolkit.svg)](https://www.npmjs.com/package/wcag-toolkit)
 ---
 
 ## Features
